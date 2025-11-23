@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#BC8887" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title id="titulo-pagina">Invitación de Boda</title>
+
+    <meta property="og:title" content="Invitación de Boda">
+    <meta property="og:locale" content="es_ES" />
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/bulma-tooltip@0.1.5/dist/bulma-tooltip.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/menikah.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.countdown.css" />
+    
+    <script src="https://kit.fontawesome.com/2828f7885a.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/jquery.coundown.js"></script>
+    <link rel="icon" type="image/png" href="image/favicon.png" />
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23064379-20"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-23064379-20');
+    </script>
+
+    <script>
+      const boda = {
+        novia: {
+          nombre: "Laura",
+          nombreCompleto: "Laura García",
+          instagram: "laura_insta", // Sin @
+          telefono: "5215555555555" // Formato internacional para WhatsApp (ej. 521...)
+        },
+        novio: {
+          nombre: "David",
+          nombreCompleto: "David Martínez",
+          instagram: "david_insta", // Sin @
+          telefono: "5215555555555"
+        },
+        fecha: {
+          diaSemana: "Martes",
+          dia: "21",
+          mes: "Abril",
+          anio: "2026",
+          textoMesAnio: "Abril 2024", // Para mostrar en el calendario
+          horaCeremonia: "17:00 hrs",
+          horaRecepcion: "19:00 - 21:00 hrs",
+          // Formato fecha cuenta regresiva: MM/DD/YYYY HH:MM:SS
+          fechaCuentaRegresiva: "04/21/2026 17:00:00"
+        },
+        ubicacion: {
+          nombreLugar: "Hacienda Los Arcángeles",
+          direccion: "Camino Real a Cholula #1234",
+          ciudadEstado: "Puebla, México",
+          iframeMapa: "https://www.google.com/maps/embed?pb=...", // Pega aquí el SRC de tu iframe de Google Maps
+          linkMapa: "https://goo.gl/maps/..." // Link corto para el botón
+        },
+        urls: {
+          calendario: "https://calendar.google.com/event?action=TEMPLATE...", // Link generado de Google Calendar
+        }
+      };
+    </script>
+  </head>
+
+  <body>
+    <div class="preloader-wrapper">
+      <div class="preloader">
+        <img src="image/favicon.png" alt="Flor" />
+      </div>
+    </div>
+
+    <div class="header-wrapper" id="inicio">
+      <section class="hero is-large">
+        <nav class="navbar is-transparent is-hidden-desktop">
+          <div class="navbar-brand is-fixed-top">
+            <div class="navbar-burger burger" data-target="navegacion-movil">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div id="navegacion-movil" class="navbar-menu">
+            <div class="navbar-end">
+              <div class="navbar-item"><a class="navbar-item" href="#tiempo">Fecha</a></div>
+              <div class="navbar-item"><a class="navbar-item" href="#ubicacion">Ubicación</a></div>
+              <div class="navbar-item"><a class="navbar-item" href="#pareja">La Pareja</a></div>
+              <div class="navbar-item"><a class="navbar-item" href="#rsvp">RSVP</a></div>
+            </div>
+          </div>
+        </nav>
+
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <h1 class="subtitle">Invitación de Boda</h1>
+            <h2 class="title"><span class="nombre-novia"></span> & <span class="nombre-novio"></span></h2>
+            <h4 class="subtitle tempatwaktu">
+                <span class="fecha-dia-semana"></span>, <span class="fecha-dia"></span> de <span class="fecha-mes"></span> de <span class="fecha-anio"></span>
+                <br>
+                <span class="ubicacion-lugar"></span>
+                <br>
+                <span class="ubicacion-ciudad"></span>
+            </h4>
+          </div>
+          
+          <div>
+            <ul id="cuenta-regresiva">
+              <li><span class="days">00</span><p class="days_text">Días</p></li>
+              <li class="separator">:</li>
+              <li><span class="hours">00</span><p class="hours_text">Horas</p></li>
+              <li class="separator">:</li>
+              <li><span class="minutes">00</span><p class="minutes_text">Minutos</p></li>
+              <li class="separator">:</li>
+              <li><span class="seconds">00</span><p class="seconds_text">Segundos</p></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hero-foot">
+          <div class="hero-foot--wrapper">
+            <div class="columns">
+              <div class="column is-12 hero-menu-desktop has-text-centered">
+                <ul>
+                  <li class="is-active"><a href="#inicio">Inicio</a></li>
+                  <li><a href="#tiempo">Fecha</a></li>
+                  <li><a href="#ubicacion">Ubicación</a></li>
+                  <li><a href="#pareja">La Pareja</a></li>
+                  <li><a href="#rsvp">Confirmar</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="main-content">
+     <section class="section-light no-padding-top regular-section has-text-centered has-vertically-aligned-content" id="seccion-regular">
+        <div data-aos="fade-up" data-aos-easing="linear">
+          <img src="image/bismillah.png" class="bismillah has-text-centered" alt="Bismillah">
+        </div>
+
+        <p class="bodytext" data-aos="fade-up" data-aos-easing="linear">
+          La paz sea con ustedes.
+          <br />
+          Con la bendición y gracia de Dios,
+          <br />
+          tenemos el honor de invitarle a nuestra ceremonia de boda.
+        </p>
+
+        <span class="space40px"></span>
+        <span class="space40px"></span>
+
+        <div data-aos="fade-up" data-aos-easing="linear">
+          <div class="nama-lengkap nombre-novia-completo"></div>
+          <div class="ampersand">&</div>
+          <div class="nama-lengkap nombre-novio-completo"></div>
+        </div>
+        
+        <span class="space40px"></span>
+        <div data-aos="fade-up" data-aos-easing="linear">
+          <img src="image/divider-leaves.png" class="divider has-text-centered" alt="~~~">
+        </div>
+        <span class="space40px"></span>
+      </section>
+      
+      <section class="section-dark" id="tiempo">
+        <div class="container">
+          <div class="column is-12 regular-section" data-aos="fade-up" data-aos-easing="linear">
+            <h1 class="title has-text-centered section-title">Fecha y Hora</h1>
+          </div>
+          <div class="columns is-multiline" data-aos="fade-up" data-aos-easing="linear">
+            <div class="column is-4 has-vertically-aligned-content">
+              <p class="is-larger has-text-centered">
+                  <div class="waktu tanggal-hari has-text-centered fecha-dia-semana"></div> 
+                  <div class="waktu tanggal-angka has-text-centered fecha-dia"></div>
+                  <div class="waktu tanggal-bulan has-text-centered fecha-mes-anio"></div>
+              </p>
+            </div>
+            <div class="column is-4 has-vertically-aligned-content">
+              <p class="waktu is-larger has-text-centered">
+                Ceremonia:
+                <br>
+                <strong class="hora-ceremonia"></strong>
+              </p>
+            </div>
+            <div class="column is-4 has-vertically-aligned-content">
+              <h1 class="waktu is-larger has-text-centered">
+                Recepción:
+                <br>
+                <strong class="hora-recepcion"></strong>
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="space40px"></div>
+        <div class="main-content has-text-centered" data-aos="fade-up" data-aos-easing="linear">
+          <a id="btn-google-calendar" href="#" target="_blank" class="button has-tooltip btn-cta" data-tooltip="Añadir a Calendario" data-aos="zoom-in">
+            <i class="far fa-calendar-plus"></i>
+              Google Calendar
+          </a>
+        </div>
+      </section>
+
+      <section class="section-darker" id="ubicacion" >
+        <div class="container">
+          <div class="column is-12 regular-section" data-aos="fade-up" data-aos-easing="linear">
+            <h1 class="title has-text-centered section-title">Ubicación</h1>
+            <p class="tempat is-larger has-text-centered">
+              <strong class="ubicacion-lugar"></strong>
+              <br>
+              <span class="ubicacion-direccion"></span>
+              <br>
+              <span class="ubicacion-ciudad"></span>
+              <br>
+            </p>
+          </div>
+          <div class="section-map" data-aos="fade-up" data-aos-easing="linear">
+            <iframe id="mapa-iframe" src="" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+          </div>
+          <div class="space40px"></div>
+          <div class="has-text-centered" data-aos="fade-up" data-aos-easing="linear">
+            <a id="btn-google-maps" href="#" class="button btn-cta" target="_blank" data-aos="zoom-in">
+              <i class="far fa-directions"></i>
+                Google Maps
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-light regular-section is-fullheight" id="pareja">
+        <div class="container">
+          <div class="columns is-multiline">  
+          <div class="column has-text-centered is-12 prolog">
+            <h1 class="title has-text-centered section-title" data-aos="fade-up" data-aos-easing="linear"> 
+              Sobre <span class="nombre-novia"></span> y <span class="nombre-novio"></span>
+            </h1>
+            
+            <div class=" tile">
+              <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                  <article class="tile is-child foto1 notification foto1" data-aos="fade-up" data-aos-easing="linear">
+                    <div class="content">
+                      <p class="title-foto">Foto 1</p>
+                      <p class="subtitle-foto">Cómo nos conocimos</p>
+                    </div>
+                  </article>
+                </div>
+                <div class="tile is-parent">
+                  <article class="tile is-child notification foto2" data-aos="fade-up" data-aos-easing="linear">
+                    <div class="content">
+                      <p class="title-foto">Foto 2</p>
+                      <p class="subtitle-foto">Nuestra primera cita</p>   
+                    </div>            
+                  </article>
+                </div>
+                <div class="tile is-parent">
+                  <article class="tile is-child notification foto3" data-aos="fade-up" data-aos-easing="linear">
+                    <div class="content">  
+                      <p class="title-foto">Foto 3</p>
+                      <p class="subtitle-foto">Momentos inolvidables</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+            
+            <div class="space40px"></div>
+            <div data-aos="fade-up" data-aos-easing="linear">
+              <img src="image/divider-leaves.png" class="divider has-vertically-align" alt="~~~">
+            </div> 
+            <div class="space40px"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-dark contact" id="rsvp">
+        <div class="container">
+          <div class="columns is-multiline">          
+            <div class="column is-12 prolog">
+              <h1 class="title has-text-centered section-title" data-aos="fade-up" data-aos-easing="linear">Confirmación de Asistencia</h1>
+            </div>
+            <div class="column is-12 prolog has-text-centered" data-aos="fade-up" data-aos-easing="linear">
+              <p class="h2 subtitle">
+                Será un honor y una gran alegría para nosotros si puede asistir.
+                <br><br>
+                Si no les es posible asistir, entendemos perfectamente.
+                <br> 
+                ¡Cuídense mucho! :)
+              </p>
+     
+              <a id="btn-whatsapp-novia" href="#" class="button btn-whatsapp" target="_blank" data-aos="zoom-in">
+                <i class="fab fa-whatsapp"></i>
+                  Contactar a <span class="nombre-novia"></span>
+              </a>
+
+              <a id="btn-whatsapp-novio" href="#" class="button btn-whatsapp" target="_blank" data-aos="zoom-in">
+                <i class="fab fa-whatsapp"></i>
+                   Contactar a <span class="nombre-novio"></span>
+              </a >
+              
+              <div class="space40px"></div>
+              <div data-aos="fade-up" data-aos-easing="linear">
+                <img src="image/divider-leaves.png" class="divider has-text-centered" alt="~~~">
+              </div>
+              <div class="space40px"></div>
+              
+              <p class="h2 subtitle" data-aos="fade-up" data-aos-easing="linear">
+                Con amor,
+                <br>
+                <a class="instagram" id="link-insta-novia" href="#" target="_blank">
+                  <i class="fab fa-instagram"></i> <span id="text-insta-novia"></span>
+                </a>
+                 
+                <a class="instagram" id="link-insta-novio" href="#" target="_blank">
+                  <i class="fab fa-instagram"></i> <span id="text-insta-novio"></span>
+                </a>
+              </p>
+            </div>
+         </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <a href="https://github.com/daengdoang/simple-wedding-invitation" class="has-vertically-align">
+          <p class="has-vertically-align">2020-2025 © @daengdoang</p>
+        </a>
+        <a href="https://bulma.io" class="has-vertically-align">
+          <img src="https://bulma.io/assets/images/made-with-bulma.png" alt="Made with Bulma">
+        </a>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/menikah.js"></script>
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    
+    <script>
+      // INICIALIZACIÓN DE ANIMACIONES
+      AOS.init({ easing: "ease-out", duration: 800 });
+
+      // LÓGICA PARA CARGAR VARIABLES
+      document.addEventListener("DOMContentLoaded", function() {
+        // Título de página
+        document.getElementById('titulo-pagina').innerText = `Boda de ${boda.novia.nombre} y ${boda.novio.nombre}`;
+
+        // Reemplazo de textos por clase (para elementos repetidos)
+        document.querySelectorAll('.nombre-novia').forEach(el => el.innerText = boda.novia.nombre);
+        document.querySelectorAll('.nombre-novio').forEach(el => el.innerText = boda.novio.nombre);
+        document.querySelectorAll('.nombre-novia-completo').forEach(el => el.innerText = boda.novia.nombreCompleto);
+        document.querySelectorAll('.nombre-novio-completo').forEach(el => el.innerText = boda.novio.nombreCompleto);
+
+        document.querySelectorAll('.fecha-dia-semana').forEach(el => el.innerText = boda.fecha.diaSemana);
+        document.querySelectorAll('.fecha-dia').forEach(el => el.innerText = boda.fecha.dia);
+        document.querySelectorAll('.fecha-mes').forEach(el => el.innerText = boda.fecha.mes);
+        document.querySelectorAll('.fecha-anio').forEach(el => el.innerText = boda.fecha.anio);
+        document.querySelectorAll('.fecha-mes-anio').forEach(el => el.innerText = boda.fecha.textoMesAnio);
+
+        document.querySelectorAll('.hora-ceremonia').forEach(el => el.innerText = boda.fecha.horaCeremonia);
+        document.querySelectorAll('.hora-recepcion').forEach(el => el.innerText = boda.fecha.horaRecepcion);
+
+        document.querySelectorAll('.ubicacion-lugar').forEach(el => el.innerText = boda.ubicacion.nombreLugar);
+        document.querySelectorAll('.ubicacion-direccion').forEach(el => el.innerText = boda.ubicacion.direccion);
+        document.querySelectorAll('.ubicacion-ciudad').forEach(el => el.innerText = boda.ubicacion.ciudadEstado);
+
+        // Configuración de Enlaces y Atributos
+        document.getElementById('mapa-iframe').src = boda.ubicacion.iframeMapa;
+        document.getElementById('btn-google-maps').href = boda.ubicacion.linkMapa;
+        document.getElementById('btn-google-calendar').href = boda.urls.calendario;
+
+        // Configuración WhatsApp
+        const textoWs = encodeURIComponent("Hola, asistiré a su boda.");
+        document.getElementById('btn-whatsapp-novia').href = `https://api.whatsapp.com/send?phone=${boda.novia.telefono}&text=${textoWs}`;
+        document.getElementById('btn-whatsapp-novio').href = `https://api.whatsapp.com/send?phone=${boda.novio.telefono}&text=${textoWs}`;
+
+        // Configuración Instagram
+        document.getElementById('link-insta-novia').href = `https://instagram.com/${boda.novia.instagram}`;
+        document.getElementById('text-insta-novia').innerText = `@${boda.novia.instagram}`;
+        document.getElementById('link-insta-novio').href = `https://instagram.com/${boda.novio.instagram}`;
+        document.getElementById('text-insta-novio').innerText = `@${boda.novio.instagram}`;
+
+        // Inicializar Cuenta Regresiva
+        $('#cuenta-regresiva').countdown({
+            date: boda.fecha.fechaCuentaRegresiva,
+            offset: -6, 
+            day: 'Día', days: 'Días',
+            hour: 'Hora', hours: 'Horas',
+            minute: 'Minuto', minutes: 'Minutos',
+            second: 'Segundo', seconds: 'Segundos'
+        }, function () {
+            // Callback al finalizar
+        });
+      });
+    </script>
+  </body>
+</html>
