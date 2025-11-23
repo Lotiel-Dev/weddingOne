@@ -1,4 +1,30 @@
-@import url("https://fonts.googleapis.com/css?family=Lato|Raleway|Rouge+Script");
+/* =========================================
+   CONFIGURACIÓN DE FONDOS (NUEVO)
+   ========================================= */
+body {
+  /* Capa 1 (Arriba): Flores fijas en la parte superior
+     Capa 2 (Abajo): Textura de papel repetida en todo el fondo */
+  background-image: url('../image/Fondo-Boho-Romantica-2.png'), url('../image/Fondo-digital-nuevo-3-1.jpg');
+  
+  /* Posición: Flores arriba al centro, Papel centrado */
+  background-position: top center, center center;
+  
+  /* Repetición: Flores no se repiten, Papel sí */
+  background-repeat: no-repeat, repeat;
+  
+  /* Fijación: 'fixed' hace que el fondo no se mueva al hacer scroll (efecto elegante) */
+  background-attachment: fixed, fixed;
+  
+  /* Tamaño: Flores ajustadas al ancho, Papel tamaño natural */
+  background-size: 100% auto, auto;
+  
+  /* Color de respaldo */
+  background-color: #fff;
+}
+
+/* =========================================
+   ESTILOS GENERALES
+   ========================================= */
 .has-vertically-aligned-content {
   display: flex;
   flex-direction: column;
@@ -22,21 +48,17 @@ html {
 .navbar-item {
   line-height: 38px;
   font-weight: 600;
-  text-transform: ;
   letter-spacing: 1px;
   font-size: 1rem;
-  box-shadow:  ;
 }
 
 .navbar-item.is-active{
   border-bottom: 2px solid #996E6D;
 }
 
-.a.navbar-item{
-  font-color: #996E6D;
-}
-
-
+/* =========================================
+   HERO SECTION (ENCABEZADO)
+   ========================================= */
 .hero {
   background-image: url(https://picsum.photos/id/25/1920/1080);
   background: linear-gradient(rgba(153, 110, 109, 0.65), rgba(153, 110, 109, 0.65)), rgba(0, 0, 0, 0.55) url("https://picsum.photos/id/381/1920/1080") no-repeat;
@@ -46,8 +68,6 @@ html {
   box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   font-family: 'Raleway', sans-serif;
 }
-
-
 
 .hero .title {
   font-family: 'Rouge Script', sans-serif;
@@ -67,7 +87,8 @@ html {
 .hero .tempatwaktu {
   padding-top: 35px;
   font-size: 1.3rem;
-  
+  /* Color cambiado a Vino */
+  color: whitesmoke;
 }
 
 .hero .hero-foot {
@@ -90,7 +111,6 @@ html {
 .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop {
   line-height: 38px;
   font-weight: 600;
-  text-transform: ;
   letter-spacing: 1px;
   font-size: 1rem;
 }
@@ -115,7 +135,6 @@ html {
   border-bottom: 2px solid #c28285;
 }
 
-
 .space40px{
   height: 40px;
 }
@@ -124,59 +143,27 @@ html {
   height: 24px;
 }
 
+/* =========================================
+   CONTENIDO PRINCIPAL
+   ========================================= */
 .main-content {
   padding-top: 2rem;
   color: #000; 
   font-family: 'Raleway', sans-serif;
 }
 
+/* Sección Oscura (Rosa suave) - AHORA SEMITRANSPARENTE */
 .main-content .section-dark {
-  background-color: #F4E2E2;
+  /* rgba(244, 226, 226, 0.85) es el equivalente a #F4E2E2 con transparencia */
+  background-color: rgba(244, 226, 226, 0.6);
   padding: 80px 40px;
 }
 
+/* Sección Más Oscura (Rosa medio) - AHORA SEMITRANSPARENTE */
 .main-content .section-darker {
-  background-color: #EDD2D1;
+  /* rgba(237, 210, 209, 0.85) es el equivalente a #EDD2D1 con transparencia */
+  background-color: rgba(237, 210, 209, 0.6);
   padding: 80px 40px;
-}
-
-.main-content .section-dark.resume {
-  height: 400px;
-  padding-top: 60px;
-
-}
-
-@media (max-width: 599px) {
-  .main-content .section-dark.resume {
-    padding-top: 75px;
-  }
-}
-
-.main-content .section-dark.resume .title {
-  padding: 20px;
-}
-
-.main-content .section-dark.resume button {
-  border: 2px solid #996E6D;
-  background: white;
-  color: #996E6D;
-  height: 50px;
-  width: 250px;
-  font-size: 1rem;
-  text-transform: uppercase;
-}
-
-.main-content .section-dark.resume .fa-download {
-  color: #996E6D;
-}
-
-.main-content .section-dark.my-work {
-  padding: 80px 40px;
-}
-
-.main-content .section-cashbac {
-  background-color: rgb(238, 250, 253);
-  padding: 80px 40px; 
 }
 
 @media (max-width: 599px) {
@@ -195,18 +182,14 @@ html {
   box-shadow: 0 5px 20px rgba(14, 25, 80, 0.3);
 }
 
-.main-content .section-dark.my-work .work-item:hover {
-  -webkit-transform: scale(1.055) translateY(-2px);
-  transform: scale(1.055) translateY(-2px);
-  -webkit-box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
-  box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
-}
-
 .section-map {
   padding: 0 0 0 0 ;
 }
 
+/* Sección Clara - AHORA SEMITRANSPARENTE */
 .main-content .section-light {
+  /* Blanco semitransparente para ver el papel de fondo */
+  background-color: rgba(255, 255, 255, 0.6);
   padding: 80px 40px;
 }
 
@@ -234,22 +217,6 @@ html {
   .main-content .section-light.regular-section .right-image img {
     margin: auto;
   }
-}
-
-.main-content .section-light.skills {
-  padding: 100px;
-}
-
-@media (max-width: 599px) {
-  .main-content .section-light.skills {
-    padding: 50px 20px 40px 20px;
-    padding-bottom: 20px;
-  }
-}
-
-.main-content .section-light.skills h1 {
-  padding: 10px;
-  font-size: 24px;
 }
 
 .main-content .section-light.contact {
@@ -307,12 +274,12 @@ html {
 }
 
 .ampersand {
-font-size: 5rem;
-font-family: 'Rouge Script', sans-serif;
-color: #996E6D;
-line-height: 5rem;
-display: inline-block;
-vertical-align: middle;
+  font-size: 5rem;
+  font-family: 'Rouge Script', sans-serif;
+  color: #996E6D;
+  line-height: 5rem;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .bodytext {
@@ -334,15 +301,16 @@ vertical-align: middle;
 .tempat {
   font-size: 1.4rem;
   font-family: 'Raleway', sans-serif;
-  font-size: ;
   margin-bottom: 50px;
 }
-
 
 .has-vertically-align {
   vertical-align: middle;
 }
 
+/* =========================================
+   FOOTER
+   ========================================= */
 .footer {
   bottom: 0;
   width: 100vw;
@@ -361,7 +329,6 @@ vertical-align: middle;
   display: inline-block;
   vertical-align: middle;
 }
-
 
 .main-content .no-padding-top {
   padding-top: 0px;
@@ -396,32 +363,9 @@ vertical-align: middle;
   vertical-align: middle;
 }
 
-#toTop {
-  height: 50px;
-  width: 50px;
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 99;
-  border: none;
-  outline: none;
-  background-color: #996E6D;
-  color: white;
-  cursor: pointer;
-  border-radius: 50%;
-  font-size: 2rem;
-  box-shadow: 0 5px 20px rgba(14, 25, 80, 0.3);
-}
-
-#toTop a {
-  color: white;
-}
-
-#toTop:hover {
-  background-color: #BC8887;
-}
-
+/* =========================================
+   SCROLLBAR & PRELOADER
+   ========================================= */
 ::-webkit-scrollbar {
   width: 8px;
   background-color: #F4E2E2;
@@ -456,7 +400,9 @@ body.preloader-site {
   width: 120px;
 }
 
-
+/* =========================================
+   BOTONES Y UTILIDADES
+   ========================================= */
 .btn-whatsapp:hover {
   color: white;
   background-color: #59a543;
@@ -468,7 +414,6 @@ body.preloader-site {
   align-items: center;
   margin: 1rem;
 }
-
 
 .btn-whatsapp {
   background-color: #6cc751;
@@ -483,9 +428,7 @@ body.preloader-site {
   border-bottom: 1px solid #6cc751;
   align-items: center;
   margin: 1rem;
-
 }
-
 
 .btn-cta:hover {
   color:white;
@@ -511,47 +454,11 @@ body.preloader-site {
   margin: 1rem;
 }
 
-.cashbac-logo-inline {
-  width: 160px;
-  vertical-align: middle;
-}
-
-.button-download {
-  min-width: 200px;
-  height: 55px;
-  align-items: center;
-  margin: 0.1rem;
-
-}
-
-.voucher-code {
-  height: 55px;
-  max-width: 180px;
-  border: 2px solid #26ade4;
-  border-radius: 10px 0 0 10px  ;
-  font-size: 24px;
-  padding: 15px;
-}
-
-.btn-voucher-code {
-  height: 55px;
-  min-width: 100px;
-  border: 2px solid #26ade4;
-  background-color: #26ade4;
-  border-radius: 0 10px 10px 0;
-  font-size: 20px;
-  padding: 0;
-  margin: 0;
-  vertical-align: middle;
-  color: white;
-}
-
 .fa-copy {
   margin-right: 5px;
 }
-.white
-{color:ghostwhite}
 
+.white {color:ghostwhite}
 
 .dusty-pink {color: #D8A9A8}
 .dusty-pink-lighter {color: #EDD2D1}
@@ -563,7 +470,9 @@ body.preloader-site {
   border-radius: 10px;
 }
 
-
+/* =========================================
+   FOTOS
+   ========================================= */
 .foto1 {
   background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/beatriz-perez-moya-M2T1j-6Fn8w-unsplash.jpg");
   background-size: cover;
@@ -571,7 +480,6 @@ body.preloader-site {
   background-repeat:no-repeat;
   min-height: 24rem;
 }
-
 
 .foto2 {
   background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/evelina-friman-hw_sKmjb0ns-unsplash.jpg");
@@ -605,7 +513,6 @@ body.preloader-site {
   min-height: 24rem;
 }
 
-
 .foto6 {
   background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/samantha-gades-x40Q9jrEVT0-unsplash.jpg");
   background-size: cover;
@@ -614,8 +521,6 @@ body.preloader-site {
   min-height: 24rem;
 }
 
-
-
 .title-foto {
   font-size: 18pt;
   font-family: 'Lato', sans-serif;
@@ -623,7 +528,6 @@ body.preloader-site {
   text-align: left;
   color: white;
 }
-
 
 .subtitle-foto {
   font-family: 'Lato', sans-serif;
@@ -635,6 +539,9 @@ body.preloader-site {
   color: white;
 }
 
+/* =========================================
+   DIVISORES Y OTROS
+   ========================================= */
 .section-light {
   background-image: url(../image/divider-flowers-leaves.png);
   background-position: bottom -30px center;

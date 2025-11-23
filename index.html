@@ -11,6 +11,8 @@
     <meta property="og:locale" content="es_ES" />
     <meta name="twitter:card" content="summary_large_image">
     
+    <link href="https://fonts.googleapis.com/css?family=Lato|Raleway|Rouge+Script&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/bulma-tooltip@0.1.5/dist/bulma-tooltip.min.css" />
     <link rel="stylesheet" type="text/css" href="css/menikah.css" />
@@ -34,13 +36,13 @@
         novia: {
           nombre: "Laura",
           nombreCompleto: "Laura García",
-          instagram: "laura_insta", // Sin @
-          telefono: "5215555555555" // Formato internacional para WhatsApp (ej. 521...)
+          instagram: "laura_insta", 
+          telefono: "5215555555555" 
         },
         novio: {
           nombre: "David",
           nombreCompleto: "David Martínez",
-          instagram: "david_insta", // Sin @
+          instagram: "david_insta", 
           telefono: "5215555555555"
         },
         fecha: {
@@ -48,21 +50,20 @@
           dia: "21",
           mes: "Abril",
           anio: "2026",
-          textoMesAnio: "Abril 2024", // Para mostrar en el calendario
+          textoMesAnio: "Abril 2024", 
           horaCeremonia: "17:00 hrs",
           horaRecepcion: "19:00 - 21:00 hrs",
-          // Formato fecha cuenta regresiva: MM/DD/YYYY HH:MM:SS
           fechaCuentaRegresiva: "04/21/2026 17:00:00"
         },
         ubicacion: {
           nombreLugar: "Hacienda Los Arcángeles",
           direccion: "Camino Real a Cholula #1234",
           ciudadEstado: "Puebla, México",
-          iframeMapa: "https://www.google.com/maps/embed?pb=...", // Pega aquí el SRC de tu iframe de Google Maps
-          linkMapa: "https://goo.gl/maps/..." // Link corto para el botón
+          iframeMapa: "https://www.google.com/maps/embed?pb=...", 
+          linkMapa: "https://goo.gl/maps/..." 
         },
         urls: {
-          calendario: "https://calendar.google.com/event?action=TEMPLATE...", // Link generado de Google Calendar
+          calendario: "https://calendar.google.com/event?action=TEMPLATE...", 
         }
       };
     </script>
@@ -200,7 +201,7 @@
         </div>
         <div class="space40px"></div>
         <div class="main-content has-text-centered" data-aos="fade-up" data-aos-easing="linear">
-          <a id="btn-google-calendar" href="#" target="_blank" class="button has-tooltip btn-cta" data-tooltip="Añadir a Calendario" data-aos="zoom-in">
+          <a id="btn-google-calendar" href="#" target="_blank" rel="noopener noreferrer" class="button has-tooltip btn-cta" data-tooltip="Añadir a Calendario" data-aos="zoom-in">
             <i class="far fa-calendar-plus"></i>
               Google Calendar
           </a>
@@ -225,7 +226,7 @@
           </div>
           <div class="space40px"></div>
           <div class="has-text-centered" data-aos="fade-up" data-aos-easing="linear">
-            <a id="btn-google-maps" href="#" class="button btn-cta" target="_blank" data-aos="zoom-in">
+            <a id="btn-google-maps" href="#" class="button btn-cta" target="_blank" rel="noopener noreferrer" data-aos="zoom-in">
               <i class="far fa-directions"></i>
                 Google Maps
             </a>
@@ -294,12 +295,12 @@
                 ¡Cuídense mucho! :)
               </p>
      
-              <a id="btn-whatsapp-novia" href="#" class="button btn-whatsapp" target="_blank" data-aos="zoom-in">
+              <a id="btn-whatsapp-novia" href="#" class="button btn-whatsapp" target="_blank" rel="noopener noreferrer" data-aos="zoom-in">
                 <i class="fab fa-whatsapp"></i>
                   Contactar a <span class="nombre-novia"></span>
               </a>
 
-              <a id="btn-whatsapp-novio" href="#" class="button btn-whatsapp" target="_blank" data-aos="zoom-in">
+              <a id="btn-whatsapp-novio" href="#" class="button btn-whatsapp" target="_blank" rel="noopener noreferrer" data-aos="zoom-in">
                 <i class="fab fa-whatsapp"></i>
                    Contactar a <span class="nombre-novio"></span>
               </a >
@@ -313,11 +314,11 @@
               <p class="h2 subtitle" data-aos="fade-up" data-aos-easing="linear">
                 Con amor,
                 <br>
-                <a class="instagram" id="link-insta-novia" href="#" target="_blank">
+                <a class="instagram" id="link-insta-novia" href="#" target="_blank" rel="noopener noreferrer">
                   <i class="fab fa-instagram"></i> <span id="text-insta-novia"></span>
                 </a>
                  
-                <a class="instagram" id="link-insta-novio" href="#" target="_blank">
+                <a class="instagram" id="link-insta-novio" href="#" target="_blank" rel="noopener noreferrer">
                   <i class="fab fa-instagram"></i> <span id="text-insta-novio"></span>
                 </a>
               </p>
@@ -326,8 +327,6 @@
         </div>
       </section>
     </div>
-
-    
 
     <script src="js/menikah.js"></script>
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">

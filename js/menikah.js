@@ -1,5 +1,3 @@
-// Que se cocine ese menú hamburguesa //
-
 document.addEventListener("DOMContentLoaded", function() {
   // Obtener todos los elementos "navbar-burger" (botón de menú móvil)
   var $hamburguesasNavegacion = Array.prototype.slice.call(
@@ -24,34 +22,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Desplazamiento suave con anclas
 $(document).on("click", 'a[href^="#"]', function(evento) {
-  evento.preventDefault();
-  $("html, body").animate(
-    {
-      scrollTop: $($.attr(this, "href")).offset().top
-    },
-    500
-  );
+  if (this.hash !== "") {
+    evento.preventDefault();
+    var hash = this.hash;
+    $("html, body").animate(
+      {
+        scrollTop: $(hash).offset().top
+      },
+      800
+    );
+  }
 });
 
-// Cuando el usuario se desplaza 20px hacia abajo desde la parte superior, mostrar el botón de subir
-window.onscroll = function() {
-  funcionDesplazamiento();
-};
-
-function funcionDesplazamiento() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("toTop").style.display = "block";
-  } else {
-    document.getElementById("toTop").style.display = "none";
-  }
-}
-
-// Precarga (Preloader)
+// Precarga (Preloader) - Sintaxis corregida
 $(document).ready(function($) {
   $(".preloader-wrapper").fadeOut();
   $("body").removeClass("preloader-site");
 });
-$(window).load(function() {
+
+$(window).on('load', function() {
   var Cuerpo = $("body");
   Cuerpo.addClass("preloader-site");
 });
